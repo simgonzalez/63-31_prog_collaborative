@@ -1,8 +1,5 @@
 package votation;
 
-import java.util.Comparator;
-import java.util.List;
-
 public abstract class CommuneUtils {
   private static final int INDEX_NOM_COMMUNE = 0;
   private static final int INDEX_NOMBRE_HABITANT_COMMUNE = 1;
@@ -23,20 +20,6 @@ public abstract class CommuneUtils {
     } else {
       throw new CannotReadCommuneRowException(row);
     }
-  }
-
-  public static Commune getMostElectors(List<Commune> communes) {
-    return communes.stream().max(Comparator.comparing(Commune::getNombreElecteur)).orElseThrow();
-  }
-
-  public static List<Commune> sortedAlphabetically(List<Commune> communes) {
-    return communes.stream().sorted(Comparator.comparing(Commune::getNom)).toList();
-  }
-
-  public static List<Commune> sortedParticipation(List<Commune> communes) {
-    return communes.stream()
-        .sorted(Comparator.comparing(Commune::getTauxDeParticipation).reversed())
-        .toList();
   }
 
   private static int parseIntValue(String supposedInt) throws CannotReadCommuneRowException {

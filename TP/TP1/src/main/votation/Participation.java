@@ -2,10 +2,10 @@ package votation;
 
 import java.util.Comparator;
 
-public class MostParticipated implements Comparator<Commune> {
+public class Participation implements Comparator<Municipality> {
 
     @Override
-    public int compare(Commune o1, Commune o2) {
+    public int compare(Municipality o1, Municipality o2) {
         return o1.getTauxDeParticipation() - o2.getTauxDeParticipation();
     }
 

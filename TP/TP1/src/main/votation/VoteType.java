@@ -1,6 +1,6 @@
 package votation;
 
-public enum VotationType {
+public enum VoteType {
   OUI,
   NON,
   ABSTENTION;

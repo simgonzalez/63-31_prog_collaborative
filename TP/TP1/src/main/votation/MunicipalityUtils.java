@@ -1,13 +1,13 @@
 package votation;
 
-public abstract class CommuneUtils {
+public abstract class MunicipalityUtils {
   private static final int INDEX_NOM_COMMUNE = 0;
   private static final int INDEX_NOMBRE_HABITANT_COMMUNE = 1;
   private static final int INDEX_NOMBRE_VOTE_OUI_COMMUNE = 2;
   private static final int INDEX_NOMBRE_VOTE_NON_COMMUNE = 3;
   private static final int INDEX_NOMBRE_VOTE_BLANC_COMMUNE = 4;
 
-  public static Commune fromCsvRow(String row) throws CannotReadCommuneRowException {
+  public static Municipality fromCsvRow(String row) throws CannotReadCommuneRowException {
     String[] communeProperty = row.split(";");
 
     if (communeProperty.length == 5) {
@@ -16,7 +16,7 @@ public abstract class CommuneUtils {
       int nombreVoteOui = parseIntValue(communeProperty[INDEX_NOMBRE_VOTE_OUI_COMMUNE]);
       int nombreVoteNon = parseIntValue(communeProperty[INDEX_NOMBRE_VOTE_NON_COMMUNE]);
       int nombreVoteBlanc = parseIntValue(communeProperty[INDEX_NOMBRE_VOTE_BLANC_COMMUNE]);
-      return new Commune(nomCommune, nombreHabitant, nombreVoteOui, nombreVoteNon, nombreVoteBlanc);
+      return new Municipality(nomCommune, nombreHabitant, nombreVoteOui, nombreVoteNon, nombreVoteBlanc);
     } else {
       throw new CannotReadCommuneRowException(row);
     }

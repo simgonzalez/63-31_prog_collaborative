@@ -3,22 +3,22 @@ package votation;
 import java.util.Comparator;
 import java.util.Map;
 
-public class Commune implements Comparable<Commune> {
+public class Municipality implements Comparable<Municipality> {
   private String nom;
   private int nombreElecteur;
-  private Map<VotationType, Integer> nombreVotationParChoix;
+  private Map<VoteType, Integer> nombreVotationParChoix;
   private int tauxDeParticipation;
 
-  public Commune(
+  public Municipality(
       String nom, int nombreElecteur, int nombreVoteOui, int nombreVoteNon, int nombreVoteBlanc) {
     this.nom = nom;
     this.nombreElecteur = nombreElecteur;
     this.nombreVotationParChoix = Map.of(
-        VotationType.OUI,
+        VoteType.OUI,
         nombreVoteOui,
-        VotationType.NON,
+        VoteType.NON,
         nombreVoteNon,
-        VotationType.ABSTENTION,
+        VoteType.ABSTENTION,
         nombreVoteBlanc);
     this.tauxDeParticipation = tauxDeParticipation();
   }
@@ -49,12 +49,12 @@ public class Commune implements Comparable<Commune> {
         nom,
         nombreElecteur,
         this.tauxDeParticipation,
-        nombreVotationParChoix.get(VotationType.OUI),
-        nombreVotationParChoix.get(VotationType.NON));
+        nombreVotationParChoix.get(VoteType.OUI),
+        nombreVotationParChoix.get(VoteType.NON));
   }
 
   @Override
-  public int compareTo(Commune o) {
+  public int compareTo(Municipality o) {
     return this.getNom().compareTo(o.getNom());
   }
 }

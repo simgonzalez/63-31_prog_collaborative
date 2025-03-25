@@ -1,11 +1,11 @@
 package domaine;
 
-public class ContratEntretienVS implements AgeDeLaChaudiere{
+public class ContratEntretienVS implements AgeDeLaChaudiere {
     private String marqueChaudiere;
     private String contact;
-    private Object contrat;
+    private AgeDeLaChaudiere contrat;
 
-    public ContratEntretienVS(String marqueChaudiere, String contact, Object contrat) {
+    public ContratEntretienVS(String marqueChaudiere, String contact, AgeDeLaChaudiere contrat) {
         this.marqueChaudiere = marqueChaudiere;
         this.contact = contact;
         this.contrat = contrat;
@@ -13,7 +13,7 @@ public class ContratEntretienVS implements AgeDeLaChaudiere{
 
     @Override
     public int getAgeChaudiere() {
-        return 0;
+        return contrat.getAgeChaudiere();
     }
 
     public String getMarqueChaudiere() {
